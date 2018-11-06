@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>INDEX</title>
+
+
+    <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <form class="pin_form" action="/auth" method="post">
+        <p>Enter pin:</p>
+        <input class="pin" type="password" pattern="[0-9]*" name="pin" value="">
+        <input class="submit" type="submit" name="submit" value="Submit">
+    </form>
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+<script src="/js/particles.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@ public class AuthMvcController {
 	
 	AuthJpaRepository rep;
 	PasswordEncoder security;
+	AuthSession auth = AuthSession.getAuthSession();;
 	AuthMvcController(AuthJpaRepository rep, PasswordEncoder security){
 		this.rep = rep;
 		this.security = security;
@@ -25,6 +26,22 @@ public class AuthMvcController {
 	@GetMapping("/")
 	public String showsIndex() {
 		System.out.println("Success");
+		return "index";
+	}
+	
+	@GetMapping("/mykolas")
+	public String enterAsMykolas() {
+		auth.setAuth(true);
+		auth.setHashPin("$2a$04$GF4BY8mtkx75dHQBEsBV7e8f/07Udip2mVRgfF9.RiqL28kzYNrki");
+		auth.setId("987654321");
+		return "index";
+	}
+	
+	@GetMapping("/rokas")
+	public String enterAsRokas() {
+		auth.setAuth(true);
+		auth.setHashPin("$2a$04$fClZzL7PV5MwEuSM3P5nvu/rJt7ywhS7aGukvfAvzfK258Kgtvoom");
+		auth.setId("123456789");
 		return "index";
 	}
 	

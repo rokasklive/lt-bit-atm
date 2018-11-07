@@ -25,6 +25,7 @@ public class AuthRestController {
 		auth.setId(body.get("id"));
 	}
 	
+	
 	@PostMapping("/state")
 	@ResponseBody
 	public ResponseEntity<String> checkState() {

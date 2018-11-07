@@ -1,4 +1,4 @@
-package lt.bit.systems.atm.config;
+                                                                                                                                                                                                                                                                                                            package lt.bit.systems.atm.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

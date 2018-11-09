@@ -1,7 +1,9 @@
 package lt.bit.systems.atm;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Vault {
 	
@@ -28,5 +30,24 @@ public class Vault {
 	public static Map<Integer, Integer> getNominalCount() {
 		return nominal;
 	}
+	
+	public static void updateAtmNominal(int WhichNominal, int HowMany) {
+		getNominalCount();
+		nominal.put(WhichNominal,nominal.get(WhichNominal) + HowMany);
+	}
+	public static void main(String[]args) {
+	
+		getVaultInstance();
+		getNominalCount();
+		System.out.println(nominal);
+		updateAtmNominal(10, 300);
+		System.out.println(nominal);
+		updateAtmNominal(10, 5);
+		System.out.println(nominal);
+		updateAtmNominal(20, 500);
+		System.out.println(nominal);
+		
+	}
+	
 	
 }

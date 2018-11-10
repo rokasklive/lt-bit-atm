@@ -3,7 +3,7 @@ package lt.bit.systems.atm.services;
 import org.springframework.stereotype.Service;
 
 import lt.bit.systems.atm.ClientJpaRepository;
-import lt.bit.systems.atm.TransactionTypes;
+import lt.bit.systems.atm.TransactionType;
 
 @Service
 public class TransactionService {
@@ -14,7 +14,7 @@ public class TransactionService {
 		this.rep = rep;
 	}
 	
-	public void updateBalance(TransactionTypes t, String id, int amount) {
+	public void updateBalance(TransactionType t, String id, int amount) {
 		if(t.getType()){
 			rep.updateBalance(id, amount);
 		} else {

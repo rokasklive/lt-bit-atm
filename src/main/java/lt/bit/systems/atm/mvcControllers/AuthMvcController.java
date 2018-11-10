@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import lt.bit.systems.atm.AuthJpaRepository;
 import lt.bit.systems.atm.Client;
 import lt.bit.systems.atm.ClientJpaRepository;
-import lt.bit.systems.atm.TransactionTypes;
+import lt.bit.systems.atm.TransactionType;
 import lt.bit.systems.atm.security.AuthSession;
 import lt.bit.systems.atm.security.PasswordEncoder;
 import lt.bit.systems.atm.services.TransactionService;
@@ -52,7 +52,7 @@ public class AuthMvcController {
 		auth.setAuth(true);
 		auth.setHashPin("$2a$04$fClZzL7PV5MwEuSM3P5nvu/rJt7ywhS7aGukvfAvzfK258Kgtvoom");
 		auth.setId("123456789");
-		transaction.updateBalance(TransactionTypes.SUB, "123456789", 100);
+		transaction.updateBalance(TransactionType.SUB, "123456789", 100);
 		return "index";
 	}
 	

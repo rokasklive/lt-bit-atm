@@ -1,12 +1,12 @@
 package lt.bit.systems.atm;
 
-public enum TransactionTypes {
+public enum TransactionType {
 
 	ADD(true),
 	SUB(false);
 	
 	private boolean type;
-	private TransactionTypes(boolean b){
+	private TransactionType(boolean b){
 		this.type = b;
 	}
 	

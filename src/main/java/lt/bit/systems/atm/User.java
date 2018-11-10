@@ -1,5 +1,8 @@
 package lt.bit.systems.atm;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,7 +21,6 @@ public class User {
 	@Column(name="lastname")
 	
 	private String lastName;
-	
 	public User(String id, String name, String lastName) {
 		this.id = id;
 		this.name = name;

@@ -1,4 +1,4 @@
-package lt.bit.systems.atm;
+package lt.bit.systems.atm.restControllers;
 
 import java.util.Map;
 
@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import lt.bit.systems.atm.security.AuthSession;
 
 
 
@@ -20,9 +22,7 @@ public class AuthRestController {
 	@PostMapping("/enter")
 	public void enterPin(@RequestParam Map<String, String> body) {
 		System.out.println(body);
-		auth.setAuth(true);
-		auth.setHashPin(body.get("hashPin"));
-		auth.setId(body.get("id"));
+		auth.setSession(body.get("hashPin"), body.get("id"));
 	}
 	
 	@PostMapping("/state")

@@ -1,4 +1,4 @@
-package lt.bit.systems.atm.Services;
+package lt.bit.systems.atm.services;
 
 import org.springframework.stereotype.Service;
 

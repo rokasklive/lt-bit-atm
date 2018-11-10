@@ -1,4 +1,4 @@
-package lt.bit.systems.atm;
+package lt.bit.systems.atm.security;
 
 public class AuthSession {
 
@@ -37,9 +37,15 @@ public class AuthSession {
 		this.auth = auth;
 	}
 	
-	public static void clearAuthSession() {
+	public void clearAuthSession() {
 		instance.setAuth(false);
 		instance.setHashPin(null);
 		instance.setId(null);
+	}
+	
+	public void setSession(String hashPin, String id) {
+		instance.setAuth(true);
+		instance.setHashPin(hashPin);
+		instance.setId(id);
 	}
 }

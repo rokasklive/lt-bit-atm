@@ -1,4 +1,4 @@
-package lt.bit.systems.atm;
+package lt.bit.systems.atm.mvcControllers;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lt.bit.systems.atm.AuthJpaRepository;
+import lt.bit.systems.atm.User;
+import lt.bit.systems.atm.security.AuthSession;
 import lt.bit.systems.atm.security.PasswordEncoder;
 
 @Controller

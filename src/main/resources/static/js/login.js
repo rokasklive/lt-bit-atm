@@ -1,6 +1,6 @@
 //var url = "https://lt-bit-atm.herokuapp.com/state"; //heroku
-//var url = "http://192.168.1.235:8014/state" //rokas
-var url = "http://192.168.100.84:8014/state" //mykolas
+var url = "http://192.168.1.235:8014/state" //rokas
+//var url = "http://192.168.100.84:8014/state" //mykolas
 var interval = setInterval(request, 3000);
 function request(){ $.ajax({
         url: url,

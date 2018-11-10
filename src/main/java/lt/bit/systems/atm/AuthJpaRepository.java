@@ -9,11 +9,11 @@ import org.springframework.data.repository.query.Param;
 
 
 
-public interface AuthJpaRepository extends JpaRepository<User, Integer> {
+public interface AuthJpaRepository extends JpaRepository<Client, Integer> {
 //	@Query("select p from Auth p where p.imei = :imei")
 //	List<Auth> findByImei(@Param("imei") String imei);
 	
-	@Query("select p from User p where p.id = :id")
-	List<User> findByID(@Param("id") String id);
+	@Query("select p from Client p where p.id = :id")
+	List<Client> findByID(@Param("id") String id);
 	
 }

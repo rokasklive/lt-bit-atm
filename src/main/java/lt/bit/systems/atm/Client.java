@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class User {
+public class Client {
 	@Id
 	@Column(name="id")
 	private String id;
@@ -21,13 +21,17 @@ public class User {
 	@Column(name="lastname")
 	
 	private String lastName;
-	public User(String id, String name, String lastName) {
+	
+	@Column(name="balance")
+	private int balance;
+	public Client(String id, String name, String lastName, int balance) {
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
+		this.balance = balance;
 	}
 
-	public User() {}
+	public Client() {}
 	
 	public String getId() {
 		return id;

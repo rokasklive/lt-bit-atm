@@ -52,7 +52,7 @@ public class AuthMvcController {
 		auth.setAuth(true);
 		auth.setHashPin("$2a$04$fClZzL7PV5MwEuSM3P5nvu/rJt7ywhS7aGukvfAvzfK258Kgtvoom");
 		auth.setId("123456789");
-		transaction.updateBalance(TransactionType.SUB, "123456789", 100);
+		auth.setClient(rep.findByID("123456789").get(0));
 		return "index";
 	}
 	
@@ -70,11 +70,23 @@ public class AuthMvcController {
 			System.out.println(rep.findByID(auth.getId()).get(0).toString());
 			model.addAttribute("name", user.getName())
 				 .addAttribute("lastName", user.getLastName());
-			return "enter";	
+			return "menu";	
 		} else {
 			System.out.println("Pin incorrect");
 			return "index";
 		}
+	}
+	
+	@GetMapping("/balance")
+	public String showBalance(Model model) {
+		model.addAttribute("balance", auth.getClient().getBalance());
+		return "balance";
+	}
+	
+	@GetMapping("/withdraw")
+	public String withdrawRedirect(Model model) {
+		model.addAttribute("withdrawStatus", auth.getWithdrawState());
+		return "menu";
 	}
 	
 }	

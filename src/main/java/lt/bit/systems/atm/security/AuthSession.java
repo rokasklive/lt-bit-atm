@@ -1,11 +1,15 @@
 package lt.bit.systems.atm.security;
 
+import lt.bit.systems.atm.Client;
+
 public class AuthSession {
 
 	private String hashPin;
 	private String id;
 	private boolean auth;
 	private static final AuthSession instance = new AuthSession();
+	private Client client;
+	private String withdrawState = "";
 	
 	private AuthSession() {};
 	
@@ -15,6 +19,14 @@ public class AuthSession {
 	
 	public void setHashPin(String hashPin) {
 		this.hashPin = hashPin;
+	}
+	
+	public void setWithdrawState(String withdrawState) {
+		this.withdrawState = withdrawState;
+	}
+	
+	public String getWithdrawState() {
+		return withdrawState;
 	}
 	
 	public void setId(String id) {
@@ -37,15 +49,25 @@ public class AuthSession {
 		this.auth = auth;
 	}
 	
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	
+	public Client getClient() {
+		return client;
+	}
+	
 	public void clearAuthSession() {
 		instance.setAuth(false);
 		instance.setHashPin(null);
 		instance.setId(null);
+		instance.setClient(null);
 	}
 	
-	public void setSession(String hashPin, String id) {
+	public void setSession(String hashPin, String id, Client client) {
 		instance.setAuth(true);
 		instance.setHashPin(hashPin);
 		instance.setId(id);
+		instance.setClient(client);
 	}
 }

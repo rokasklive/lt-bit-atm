@@ -30,4 +30,10 @@ public class ClientService {
 	public void depositFunds(int amount) {
 		client.updateBalance(auth.getId(), amount);
 	}
+	
+	public void withdrawHandler(int amount) {
+		if(this.hasEnoughMoney(amount)) {
+			this.withdrawFunds(amount);
+		}
+	}
 }

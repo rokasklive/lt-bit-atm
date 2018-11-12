@@ -77,16 +77,6 @@ public class AuthMvcController {
 		}
 	}
 	
-	@GetMapping("/balance")
-	public String showBalance(Model model) {
-		model.addAttribute("balance", auth.getClient().getBalance());
-		return "balance";
-	}
-	
-	@GetMapping("/withdraw")
-	public String withdrawRedirect(Model model) {
-		model.addAttribute("withdrawStatus", auth.getWithdrawState());
-		return "menu";
-	}
+
 	
 }	

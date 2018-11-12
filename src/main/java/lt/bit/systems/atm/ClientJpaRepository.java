@@ -13,4 +13,7 @@ public interface ClientJpaRepository extends JpaRepository<Client, Integer> {
 	@Modifying
 	@Query("update Client c set c.balance = c.balance + :amount where c.id = :id")
 	void updateBalance(@Param("id") String id, @Param("amount") int amount);
+	
+	@Query("SELECT c from Client c where c.id = :id")
+	List<Client> getClient(@Param("id") String id);
 }

@@ -3,18 +3,18 @@ package lt.bit.systems.atm.restControllers;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import lt.bit.systems.atm.AuthJpaRepository;
 import lt.bit.systems.atm.security.AuthSession;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/")
 public class AuthRestController {
 		

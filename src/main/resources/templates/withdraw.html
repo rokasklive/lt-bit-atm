@@ -6,11 +6,30 @@
    </head>
    <body>
       <h1>Select an amount:</h1>
-      <a href="/withdraw/10">10</a>
-      <a href="/withdraw/20">20</a>
-      <a href="/withdraw/50">50</a>
-      <a href="/withdraw/100">100</a>
-      <a href="/withdraw/200">200</a>
+      <form class="" action="/withdraw" method="post">
+          <input type="number" name="amount" value="10" readonly>
+          <input type="submit" name="submit" value="">
+      </form>
+
+      <form class="" action="/withdraw" method="post">
+          <input type="number" name="amount" value="20" readonly>
+          <input type="submit" name="submit" value="">
+      </form>
+
+      <form class="" action="/withdraw" method="post">
+          <input type="number" name="amount" value="50" readonly>
+          <input type="submit" name="submit" value="">
+      </form>
+
+      <form class="" action="/withdraw" method="post">
+          <input type="number" name="amount" value="100" readonly>
+          <input type="submit" name="submit" value="">
+      </form>
+
+      <form class="" action="/withdraw" method="post">
+          <input type="number" name="amount" value="200" readonly>
+          <input type="submit" name="submit" value="">
+      </form>
       <a href="/otherAmount">Other amount</a>
       <a href="/menu">Back</a>
       <a href="/logout">Exit</a>

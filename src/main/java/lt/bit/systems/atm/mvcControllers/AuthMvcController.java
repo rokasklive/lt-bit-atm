@@ -4,7 +4,6 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import lt.bit.systems.atm.AuthJpaRepository;
 import lt.bit.systems.atm.Client;
 import lt.bit.systems.atm.ClientJpaRepository;
-import lt.bit.systems.atm.TransactionType;
 import lt.bit.systems.atm.security.AuthSession;
 import lt.bit.systems.atm.security.PasswordEncoder;
-import lt.bit.systems.atm.services.TransactionService;
 
 @Controller
 public class AuthMvcController {
@@ -24,12 +21,10 @@ public class AuthMvcController {
 	AuthJpaRepository rep;
 	ClientJpaRepository cRep;
 	PasswordEncoder security;
-	TransactionService transaction;	
 	AuthSession auth = AuthSession.getAuthSession();;
-	AuthMvcController(AuthJpaRepository rep, PasswordEncoder security, TransactionService transaction){
+	AuthMvcController(AuthJpaRepository rep, PasswordEncoder security){
 		this.rep = rep;
 		this.security = security;
-		this.transaction = transaction;
 	}
 	
 	

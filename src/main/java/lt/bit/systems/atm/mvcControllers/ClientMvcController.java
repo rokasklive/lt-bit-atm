@@ -6,18 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import lt.bit.systems.atm.ClientJpaRepository;
 import lt.bit.systems.atm.security.AuthSession;
-import lt.bit.systems.atm.services.TransactionService;
 
 @Controller
 public class ClientMvcController {
 
 	ClientJpaRepository rep;
-	TransactionService transaction;
+
 	AuthSession auth;
 	
-	ClientMvcController(ClientJpaRepository rep, TransactionService transaction){
+	ClientMvcController(ClientJpaRepository rep){
 		this.rep = rep;
-		this.transaction = transaction;
 		auth = AuthSession.getAuthSession();
 	}
 	
@@ -29,7 +27,6 @@ public class ClientMvcController {
 	
 	@GetMapping("/withdraw")
 	public String withdrawRedirect(Model model) {
-		model.addAttribute("withdrawStatus", auth.getWithdrawState());
 		return "withdraw";
 	}
 	

@@ -9,7 +9,6 @@ public class AuthSession {
 	private boolean auth;
 	private static final AuthSession instance = new AuthSession();
 	private Client client;
-	private String withdrawState = "";
 	
 	private AuthSession() {};
 	
@@ -19,14 +18,6 @@ public class AuthSession {
 	
 	public void setHashPin(String hashPin) {
 		this.hashPin = hashPin;
-	}
-	
-	public void setWithdrawState(String withdrawState) {
-		this.withdrawState = withdrawState;
-	}
-	
-	public String getWithdrawState() {
-		return withdrawState;
 	}
 	
 	public void setId(String id) {

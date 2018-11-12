@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ClientJpaRepository extends JpaRepository<Client, Integer> {
 	@Transactional	
 	@Modifying
-	@Query("update Client c set c.balance = c.balance + :amount where c.id = :id")
+	@Query("UPDATE Client c SET c.balance = c.balance + :amount WHERE c.id = :id")
 	void updateBalance(@Param("id") String id, @Param("amount") int amount);
 	
-	@Query("SELECT c from Client c where c.id = :id")
+	@Query("SELECT c FROM Client c WHERE c.id = :id")
 	List<Client> getClient(@Param("id") String id);
 }

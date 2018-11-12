@@ -10,10 +10,8 @@ import org.springframework.data.repository.query.Param;
 
 
 public interface AuthJpaRepository extends JpaRepository<Client, Integer> {
-//	@Query("select p from Auth p where p.imei = :imei")
-//	List<Auth> findByImei(@Param("imei") String imei);
 	
-	@Query("select p from Client p where p.id = :id")
+	@Query("SELECT p FROM Client p WHERE p.id = :id")
 	List<Client> findByID(@Param("id") String id);
 	
 }

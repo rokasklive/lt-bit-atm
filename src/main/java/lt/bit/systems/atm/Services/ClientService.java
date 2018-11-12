@@ -3,12 +3,14 @@ package lt.bit.systems.atm.services;
 import org.springframework.stereotype.Service;
 
 import lt.bit.systems.atm.ClientJpaRepository;
+import lt.bit.systems.atm.Vault;
 import lt.bit.systems.atm.security.AuthSession;
 
 @Service
 public class ClientService {
 
 	AuthSession auth = AuthSession.getAuthSession();
+	Vault vault = Vault.getVaultInstance();
 	private final ClientJpaRepository client;
 	
 	ClientService(ClientJpaRepository client){
@@ -24,6 +26,7 @@ public class ClientService {
 	}
 	
 	public void withdrawFunds(int amount) {
+		vault.nominalCounting(amount);
 		client.updateBalance(auth.getId(), -amount);
 	}
 	
@@ -36,4 +39,6 @@ public class ClientService {
 			this.withdrawFunds(amount);
 		}
 	}
-}
+	
+	}
+

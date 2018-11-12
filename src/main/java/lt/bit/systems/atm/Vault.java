@@ -1,11 +1,12 @@
 package lt.bit.systems.atm;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Vault {
 	
-	private static Map<Integer, Integer> nominal = new HashMap<Integer, Integer>();
+	private static Map<Integer, Integer> nominal = new TreeMap<Integer, Integer>(Collections.reverseOrder());
 	
 	private static Vault instance;
 
@@ -16,10 +17,11 @@ public class Vault {
 		if(instance == null) {
 			instance = new Vault();
 			
-			nominal.put(10, 200);
-			nominal.put(20, 150);
-			nominal.put(50, 100);
-			nominal.put(100, 50);
+			nominal.put(200, 200);
+			nominal.put(100, 300);
+			nominal.put(50, 300);
+			nominal.put(20, 500);
+			nominal.put(10, 500);
 		}
 		return instance;
 	};
@@ -39,9 +41,24 @@ public class Vault {
 	//
 	// And make that when method called it gives you how many nominal left and how many nominal it takes
 	
+	public void nominalCounting(int amount) {
+		int temp = amount;
+		for (Integer in : nominal.keySet()) {
+			if(temp >= in) {
+				System.out.println(nominal.get(in) + "before " + in);
+				for(int i = 0; i < temp/in; i++) {
+					nominal.put(in, nominal.get(in) - 1);
+					temp -= in;
+				}
+				System.out.println(nominal.get(in));
+			}	
+		}
+		
+	}
+	
 	public static void bigNominal(int sum) {
 		
-		if (sum >= 10 && sum <= 500) {
+		if (sum >= 10 && sum <= 1000) {
 		
 		int count100 = sum / 100;
 		int h = 0;
@@ -117,44 +134,6 @@ public class Vault {
 		
 		
 	}
-	
-	public static void main(String[]args) {
-//	
-		getVaultInstance();
-		getNominalCount();
-//		System.out.println(nominal);
-//		updateAtmNominal(10, 300);
-//		System.out.println(nominal);
-//		updateAtmNominal(10, 5);
-//		System.out.println(nominal);
-//		updateAtmNominal(20, 500);
-//		System.out.println(nominal);
-//		int sum = 100;
-//		int sum2 = 50;
-//		int sum3 = 20;
-//		int sum4 = 10;
-//		
-//		int newSum = sum % 200;
-//		System.out.println(newSum);
-//		int newSum2 = sum2 % 200;
-//		System.out.println(newSum2);
-//		int newSum3 = sum3 % 200;
-//		System.out.println(newSum3);
-//		int newSum4 = sum4 % 200;
-//		System.out.println(newSum4);
 		
-		bigNominal(500);
-		bigNominal(470);
-		bigNominal(-10);
-		bigNominal(510);
-		bigNominal(10);
-		
-		smallNominal(10);
-		smallNominal(20);
-		
-		
-	}
-	
-	
 	
 }

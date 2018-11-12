@@ -15,6 +15,8 @@ public class MvcConfig implements WebMvcConfigurer {
 	       registry.addViewController("/index").setViewName("index");
 	       registry.addViewController("/menu").setViewName("menu");
 	       registry.addViewController("/balance").setViewName("balance");
+	       registry.addViewController("/withdraw").setViewName("withdraw");
+	       registry.addViewController("/otherAmount").setViewName("otherAmount");
 	       registry.addRedirectViewController("/api/v2/api-docs", "/v2/api-docs");
 	       registry.addRedirectViewController("/api/swagger-resources/configuration/ui", "/swagger-resources/configuration/ui");
 	       registry.addRedirectViewController("/api/swagger-resources/configuration/security", "/swagger-resources/configuration/security");

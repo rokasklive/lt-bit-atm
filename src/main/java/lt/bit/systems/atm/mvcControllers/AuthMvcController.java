@@ -34,10 +34,20 @@ public class AuthMvcController {
 		return "index";
 	}
 	
+	@GetMapping("/demo")
+	public String enterAsDemo() {
+		auth.setAuth(true);
+		auth.setHashPin("$2a$04$3f9nNpJ5j5tZW/nSJNeR5.eqGsSGAzGxC1ARii6jqYqr7SihsSFwq");
+		auth.setClient(rep.findByID("123456788").get(0));
+		auth.setId("123456788");
+		return "index";
+	}
+	
 	@GetMapping("/mykolas")
 	public String enterAsMykolas() {
 		auth.setAuth(true);
 		auth.setHashPin("$2a$04$GF4BY8mtkx75dHQBEsBV7e8f/07Udip2mVRgfF9.RiqL28kzYNrki");
+		auth.setClient(rep.findByID("987654321").get(0));
 		auth.setId("987654321");
 		return "index";
 	}

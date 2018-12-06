@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name="user", schema="bank")
 public class Client {
 	@Id
 	@Column(name="id")
